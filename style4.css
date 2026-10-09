@@ -1,0 +1,29 @@
+header {
+  background-color: #1F4E79;
+  color: white;
+  padding: 20px;
+}
+
+.hero {
+  background-color: blue;
+  color: white;
+  text-align: center;
+  padding: 50px;
+}
+
+.card {
+  display: inline-block;
+  width: 150px;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px gray;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}

@@ -1,0 +1,12 @@
+h1, li {
+  font-family: Arial;
+  color: #1F4E79;
+}
+
+ul li {
+  color: green;
+}
+
+li:hover {
+  color: red;
+}

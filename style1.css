@@ -1,0 +1,21 @@
+body {
+  background-color: #f0f0f0;
+}
+
+p {
+  font-size: 18px;
+  color: black;
+}
+
+.nama {
+  color: blue;
+}
+
+.motto {
+  font-style: italic;
+}
+
+#judul {
+  text-align: center;
+  color: red;
+}

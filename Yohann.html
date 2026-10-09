@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil & Portofolio Yohan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0f172a;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+        .nav-btn-active {
+            background-color: #2563eb;
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
+        }
+        .page-hidden {
+            display: none !important;
+        }
+        .floating-nav-btn:hover span {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="text-slate-200 selection:bg-blue-500/30 overflow-x-hidden">
+
+    <!-- Sidebar Navigasi Widget (Hanya muncul di halaman About) -->
+    <div id="floating-nav" class="fixed left-4 md:left-8 top-1/2 -translate-y-1/2 z-[110] flex flex-col space-y-4 transition-all duration-300">
+        <button onclick="scrollToSection('data-diri')" class="floating-nav-btn group flex items-center bg-blue-600/20 backdrop-blur-xl p-4 rounded-2xl border border-blue-500/40 hover:bg-blue-600 hover:scale-110 transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)]">
+            <i data-lucide="user" class="w-6 h-6 text-white"></i>
+            <span class="absolute left-16 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-lg opacity-0 transition-opacity pointer-events-none whitespace-nowrap">Data Diri</span>
+        </button>
+
+        <button onclick="scrollToSection('kemampuan')" class="floating-nav-btn group flex items-center bg-purple-600/20 backdrop-blur-xl p-4 rounded-2xl border border-purple-500/40 hover:bg-purple-600 hover:scale-110 transition-all shadow-[0_0_20px_rgba(147,51,234,0.3)]">
+            <i data-lucide="zap" class="w-6 h-6 text-white"></i>
+            <span class="absolute left-16 bg-purple-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-lg opacity-0 transition-opacity pointer-events-none whitespace-nowrap">Kemampuan</span>
+        </button>
+
+        <button onclick="scrollToSection('hobi-sekolah')" class="floating-nav-btn group flex items-center bg-emerald-600/20 backdrop-blur-xl p-4 rounded-2xl border border-emerald-500/40 hover:bg-emerald-600 hover:scale-110 transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+            <i data-lucide="target" class="w-6 h-6 text-white"></i>
+            <span class="absolute left-16 bg-emerald-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-lg opacity-0 transition-opacity pointer-events-none whitespace-nowrap">Eksplorasi</span>
+        </button>
+    </div>
+
+    <!-- Navbar Atas -->
+    <nav class="fixed top-0 left-0 right-0 z-[100] backdrop-blur-xl bg-slate-900/80 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="navigate('about')">
+                <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center font-black text-white shadow-lg text-lg">Y</div>
+                <span class="font-bold text-xl text-white hidden sm:block tracking-tight">Yohan.Dev</span>
+            </div>
+            
+            <div class="flex bg-slate-800 p-1 rounded-xl border border-slate-700">
+                <button id="nav-btn-about" onclick="navigate('about')" class="px-6 py-2 rounded-lg text-sm font-bold nav-btn-active transition-all">Profil</button>
+                <button id="nav-btn-portfolio" onclick="navigate('portfolio')" class="px-6 py-2 rounded-lg text-sm font-bold text-slate-400 hover:text-white transition-all">Portofolio</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="h-20"></div>
+
+    <!-- ================= HALAMAN ABOUT ================= -->
+    <div id="page-about" class="page-section relative block animate-[fadeIn_0.5s_ease-out]">
+        <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Kolom Kiri: Profil -->
+                <div class="space-y-6 scroll-mt-24" id="data-diri">
+                    <div class="glass-card rounded-[2rem] p-8 text-center shadow-2xl relative overflow-hidden">
+                        <div class="relative mx-auto w-40 h-40 rounded-full border-4 border-slate-900 shadow-xl overflow-hidden mb-6 bg-slate-700">
+                            <img src="WhatsApp Image 2026-03-31 at 10.50.06.jpeg" 
+                                 alt="Profil Yohan" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://ui-avatars.com/api/?name=Yohan+Alim&background=2563eb&color=fff'">
+                        </div>
+                        <h1 class="text-2xl font-black text-white mb-2 italic">Yohan Alim Wijaya</h1>
+                        <p class="text-blue-400 font-bold uppercase text-[10px] tracking-widest mb-6">X TKJ 1 • Absen 34</p>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-slate-900 p-3 rounded-xl border border-slate-700">
+                                <p class="text-[9px] text-slate-500 uppercase font-black">Status</p>
+                                <p class="text-xs font-bold text-white">Siswa Aktif</p>
+                            </div>
+                            <div class="bg-slate-900 p-3 rounded-xl border border-slate-700">
+                                <p class="text-[9px] text-slate-500 uppercase font-black">Umur</p>
+                                <p class="text-xs font-bold text-white">16 Tahun</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-[2rem] p-8 shadow-xl">
+                        <h3 class="text-sm font-black text-white mb-6 uppercase tracking-widest flex items-center">
+                            <i data-lucide="user" class="w-4 h-4 mr-2 text-blue-500"></i> Profil Singkat
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4 p-3 bg-slate-900 rounded-xl border border-slate-700/50">
+                                <i data-lucide="calendar" class="w-4 h-4 text-purple-400"></i>
+                                <p class="text-xs text-slate-200">15 Mei 2010</p>
+                            </div>
+                            <div class="flex items-center space-x-4 p-3 bg-slate-900 rounded-xl border border-slate-700/50">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-green-400"></i>
+                                <p class="text-xs text-slate-200">Caruban, Madiun</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-[2rem] p-8 shadow-xl">
+                        <h3 class="text-sm font-black text-white mb-6 uppercase tracking-widest">Kontak</h3>
+                        <div class="space-y-3">
+                            <a href="https://www.instagram.com/almwijya" target="_blank" class="flex items-center p-3 bg-pink-500/10 rounded-xl border border-pink-500/20 hover:bg-pink-500/20 transition-all">
+                                <i data-lucide="instagram" class="w-4 h-4 text-pink-500 mr-3"></i>
+                                <span class="text-xs font-bold text-slate-200">@almwijya</span>
+                            </a>
+                            <a href="https://wa.me/6281357669999" target="_blank" class="flex items-center p-3 bg-green-500/10 rounded-xl border border-green-500/20 hover:bg-green-500/20 transition-all">
+                                <i data-lucide="message-circle" class="w-4 h-4 text-green-500 mr-3"></i>
+                                <span class="text-xs font-bold text-slate-200">+62 813 5766 9999</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Deskripsi & Skill -->
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="glass-card rounded-[2.5rem] p-10 shadow-2xl">
+                        <h2 class="text-3xl font-black text-white mb-6 italic tracking-tight underline decoration-blue-600 decoration-4 underline-offset-8">Tentang Saya</h2>
+                        <div class="text-slate-300 text-lg leading-relaxed text-justify space-y-4">
+                            <p>
+                                Halo! Saya <strong class="text-white">Yohan Alim Wijaya</strong>, siswa jurusan Teknik Komputer dan Jaringan (TKJ) di SMK Telkom Malang. Saya sangat tertarik mempelajari bagaimana infrastruktur digital bekerja dan bagaimana teknologi menghubungkan dunia secara efisien.
+                            </p>
+                            <p>
+                                Di sekolah, saya aktif mengikuti praktikum instalasi jaringan dan manajemen server. Saya percaya ketelitian dalam pemecahan masalah adalah kunci utama. Selain teknis, saya juga senang mengasah kerja tim melalui berbagai kegiatan kolaboratif.
+                            </p>
+                            <p>
+                                Minat saya pada teknologi juga hadir lewat hobi robotika dan e-sports. Bagi saya, setiap tantangan di bidang IT adalah peluang berharga untuk terus berkembang menjadi individu yang lebih kompeten.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Skill Akademik -->
+                    <div class="glass-card rounded-[2.5rem] p-10 shadow-xl scroll-mt-24" id="kemampuan">
+                        <h3 class="text-xl font-black text-white mb-8 flex items-center uppercase tracking-widest">
+                            <i data-lucide="zap" class="w-6 h-6 mr-3 text-yellow-400"></i> Kemampuan Akademik
+                        </h3>
+                        <div class="space-y-8">
+                            <div>
+                                <div class="flex justify-between items-end mb-3">
+                                    <span class="text-xs font-black text-slate-400 uppercase tracking-widest">B. Inggris</span>
+                                    <span class="text-lg font-black text-white">97%</span>
+                                </div>
+                                <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-700">
+                                    <div class="h-full bg-indigo-500 shadow-[0_0_10px_rgba(255,255,255,0.1)]" style="width: 97%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-end mb-3">
+                                    <span class="text-xs font-black text-slate-400 uppercase tracking-widest">Informatika</span>
+                                    <span class="text-lg font-black text-white">90%</span>
+                                </div>
+                                <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-700">
+                                    <div class="h-full bg-blue-500 shadow-[0_0_10px_rgba(255,255,255,0.1)]" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-end mb-3">
+                                    <span class="text-xs font-black text-slate-400 uppercase tracking-widest">TKJ / Produktif</span>
+                                    <span class="text-lg font-black text-white">88%</span>
+                                </div>
+                                <div class="w-full bg-slate-900 rounded-full h-3 overflow-hidden border border-slate-700">
+                                    <div class="h-full bg-green-500 shadow-[0_0_10px_rgba(255,255,255,0.1)]" style="width: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hobi & Sekolah -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 scroll-mt-24" id="hobi-sekolah">
+                        <div class="glass-card rounded-[2rem] p-8">
+                            <h3 class="text-sm font-black text-white mb-6 uppercase tracking-widest flex items-center">
+                                <i data-lucide="graduation-cap" class="w-4 h-4 mr-2 text-blue-500"></i> Sekolah
+                            </h3>
+                            <p class="text-lg font-black text-white mb-1">SMK Telkom Malang</p>
+                            <p class="text-xs text-blue-400 font-bold mb-4">Teknik Komputer & Jaringan</p>
+                            <div class="space-y-2 bg-slate-900 p-4 rounded-xl border border-slate-700">
+                                <p class="text-[10px] text-slate-400 font-bold uppercase">Alamat Lengkap:</p>
+                                <p class="text-[10px] text-slate-300 leading-relaxed">
+                                    Jl. Danau Ranau, Sawojajar, Kec. Kedungkandang, Kota Malang, Jawa Timur 65139.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card rounded-[2rem] p-8">
+                            <h3 class="text-sm font-black text-white mb-6 uppercase tracking-widest flex items-center">
+                                <i data-lucide="gamepad-2" class="w-4 h-4 mr-2 text-purple-500"></i> Hobi
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-lg text-[10px] font-black text-slate-300 uppercase tracking-tighter">Valorant</span>
+                                <span class="px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-lg text-[10px] font-black text-slate-300 uppercase tracking-tighter">Mobile Legends</span>
+                                <span class="px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-lg text-[10px] font-black text-slate-300 uppercase tracking-tighter">Networking</span>
+                                <span class="px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-lg text-[10px] font-black text-slate-300 uppercase tracking-tighter">Robotics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ================= HALAMAN PORTOFOLIO ================= -->
+    <div id="page-portfolio" class="page-section page-hidden relative animate-[fadeIn_0.5s_ease-out]">
+        <main class="max-w-6xl mx-auto px-4 py-12">
+            <h1 class="text-4xl font-black text-white mb-4 italic">Eksplorasi Proyek</h1>
+            <p class="text-slate-400 mb-12">Berikut adalah proyek-proyek unggulan yang telah saya kerjakan.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Card Project 1: Moklet Serve -->
+                <div class="glass-card rounded-[2rem] overflow-hidden hover:border-green-500 transition-all flex flex-col shadow-xl">
+                    <div class="h-56 overflow-hidden bg-slate-700 relative">
+                        <img src="https://drive.google.com/uc?export=view&id=1o7WKVTORh1LXcSlFB8zSF7koHFLqT6j0" class="w-full h-full object-cover" alt="Moklet Serve" onerror="this.src='https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&q=80&w=800'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col items-start">
+                        <div class="bg-green-500/20 text-green-400 px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest mb-4 border border-green-500/30">Proyek Sosial P5</div>
+                        <h3 class="text-2xl font-black text-white mb-4">Moklet Serve</h3>
+                        <p class="text-xs text-slate-400 mb-6 leading-relaxed">Bagian dari Proyek Penguatan Profil Pelajar Pancasila (P5) yang bertujuan menjembatani pendidikan dengan kepedulian sosial di masyarakat.</p>
+                        <button onclick="showProjectDetail('serve')" class="mt-auto inline-flex items-center space-x-2 bg-slate-800 hover:bg-green-600 border border-slate-600 hover:border-green-500 text-white py-3 px-6 rounded-xl text-sm font-black uppercase tracking-widest transition-all">
+                            <span>Detail Proyek</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card Project 2: MOVE -->
+                <div class="glass-card rounded-[2rem] overflow-hidden hover:border-blue-500 transition-all flex flex-col shadow-xl">
+                    <div class="h-56 overflow-hidden bg-slate-700 relative">
+                        <img src="https://drive.google.com/uc?export=view&id=1tlUXQlLha91_YnHVUUZpgSsBkpFmKiQc" class="w-full h-full object-cover" alt="MOVE Project" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col items-start">
+                        <div class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest mb-4 border border-blue-500/30">Analisis Data</div>
+                        <h3 class="text-2xl font-black text-white mb-4">MOVE (Moklet Investigation)</h3>
+                        
+                        <button onclick="showProjectDetail('move')" class="mt-auto inline-flex items-center space-x-2 bg-slate-800 hover:bg-blue-600 border border-slate-600 hover:border-blue-500 text-white py-3 px-6 rounded-xl text-sm font-black uppercase tracking-widest transition-all">
+                            <span>Detail Proyek</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- ================= HALAMAN DETAIL PROYEK: MOKLET SERVE ================= -->
+    <div id="detail-serve" class="page-section page-hidden relative animate-[fadeIn_0.5s_ease-out]">
+        <main class="max-w-4xl mx-auto px-4 py-12">
+            <button onclick="navigate('portfolio')" class="inline-flex items-center space-x-2 text-slate-400 hover:text-white mb-8 transition-colors">
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                <span class="font-bold">Kembali ke Portofolio</span>
+            </button>
+
+            <div class="glass-card rounded-[2.5rem] overflow-hidden shadow-2xl">
+                <div class="h-64 sm:h-96 relative">
+                    <img src="https://drive.google.com/uc?export=view&id=1o7WKVTORh1LXcSlFB8zSF7koHFLqT6j0" class="w-full h-full object-cover" alt="Moklet Serve" onerror="this.src='https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&q=80&w=800'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <div class="bg-green-500/20 text-green-400 px-4 py-1.5 rounded-lg text-xs font-black uppercase tracking-widest mb-4 border border-green-500/30 inline-block">Proyek Sosial P5</div>
+                        <h1 class="text-4xl sm:text-5xl font-black text-white leading-tight">Moklet Serve</h1>
+                    </div>
+                </div>
+                
+                <div class="p-8 sm:p-12">
+                    <h3 class="text-xl font-bold text-white mb-4">Penjelasan & Tujuan Proyek</h3>
+                    <div class="text-slate-300 leading-relaxed space-y-4 mb-10 text-justify">
+                        <p>
+                            <strong>Moklet Serve</strong> adalah bagian dari Proyek Penguatan Profil Pelajar Pancasila (P5) di lingkungan SMK Telkom Malang (Moklet). Program ini dirancang khusus untuk menjembatani pendidikan dengan kepedulian sosial, serta menyiapkan sumber daya manusia (SDM) yang unggul dan berkarakter.
+                        </p>
+                        <p>
+                            Tujuan utama dari proyek ini adalah memupuk rasa kepedulian sosial dan tanggung jawab siswa kepada masyarakat. Sebagai implementasi kurikulum P5, Moklet Serve menjadi wadah untuk mencetak generasi yang tidak hanya unggul secara akademis dan teknis, tetapi juga memiliki kepekaan sosial yang tinggi.
+                        </p>
+                        <p>
+                            Dalam pelaksanaannya, proyek ini melibatkan siswa secara langsung dalam berbagai aktivitas sosial kemasyarakatan. Salah satu contoh nyata adalah kolaborasi dengan lembaga pendidikan anak usia dini (seperti AULIA Preschool) untuk menghadirkan inovasi pendidikan yang interaktif dan bermanfaat bagi perkembangan anak serta masyarakat sekitar.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-6">
+                        <div>
+                            <h4 class="text-white font-bold mb-1">Dokumentasi Lengkap</h4>
+                            <p class="text-sm text-slate-400">Lihat laporan, foto kegiatan, dan dokumentasi P5 di Google Drive.</p>
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/1akfNo7Q46DgTc1GQuc4iLxRTYG0fBQmu?usp=drive_link" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-500 text-white py-3 px-8 rounded-xl font-black uppercase tracking-widest transition-colors shadow-lg shadow-green-500/30">
+                            <i data-lucide="folder-open" class="w-5 h-5"></i>
+                            <span>Buka Drive</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ================= HALAMAN DETAIL PROYEK: MOVE ================= -->
+    <div id="detail-move" class="page-section page-hidden relative animate-[fadeIn_0.5s_ease-out]">
+        <main class="max-w-4xl mx-auto px-4 py-12">
+            <button onclick="navigate('portfolio')" class="inline-flex items-center space-x-2 text-slate-400 hover:text-white mb-8 transition-colors">
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                <span class="font-bold">Kembali ke Portofolio</span>
+            </button>
+
+            <div class="glass-card rounded-[2.5rem] overflow-hidden shadow-2xl">
+                <div class="h-64 sm:h-96 relative">
+                    <img src="https://drive.google.com/uc?export=view&id=1tlUXQlLha91_YnHVUUZpgSsBkpFmKiQc" class="w-full h-full object-cover" alt="MOVE" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <div class="bg-blue-500/20 text-blue-400 px-4 py-1.5 rounded-lg text-xs font-black uppercase tracking-widest mb-4 border border-blue-500/30 inline-block">Analisis Data</div>
+                        <h1 class="text-4xl sm:text-5xl font-black text-white leading-tight">MOVE<br><span class="text-2xl text-slate-300 italic">(Moklet Investigation)</span></h1>
+                    </div>
+                </div>
+                
+                <div class="p-8 sm:p-12">
+                    <h3 class="text-xl font-bold text-white mb-4">Penjelasan & Tujuan Proyek</h3>
+                    <div class="text-slate-300 leading-relaxed space-y-4 mb-10 text-justify">
+                        <p>
+                            <strong>MOVE (Moklet Investigation)</strong> adalah sebuah proyek yang menitikberatkan pada kemampuan riset, investigasi, dan analisis data sistematis di lingkungan SMK Telkom Malang. Proyek ini menuntut siswa untuk berpikir kritis seperti layaknya seorang analis data atau *system investigator*.
+                        </p>
+                        <p>
+                            Tujuan dari proyek ini adalah untuk melatih ketajaman kami dalam mengidentifikasi masalah, mengumpulkan fakta dan data dari lapangan secara akurat, lalu mengklasifikasikan informasi tersebut ke dalam format yang terstruktur. Setelah data terkumpul, tugas kami adalah menganalisis temuan tersebut untuk mencari akar permasalahan (*root cause*).
+                        </p>
+                        <p>
+                            Hasil akhir dari MOVE adalah menyusun laporan investigasi komprehensif yang tidak hanya memaparkan temuan masalah, tetapi juga menyajikan rekomendasi perbaikan dan solusi teknis yang logis. Proyek ini sangat krusial untuk mengasah kemampuan *problem solving* dan manajemen tim yang sangat dibutuhkan di industri teknologi informasi.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-6">
+                        <div>
+                            <h4 class="text-white font-bold mb-1">Dokumentasi Lengkap</h4>
+                            <p class="text-sm text-slate-400">Lihat data riset, hasil investigasi, dan laporan di Google Drive.</p>
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/12-MEyvCX6mcLs0Hc2FSvjK70eo8NfUQo?usp=drive_link" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-500 text-white py-3 px-8 rounded-xl font-black uppercase tracking-widest transition-colors shadow-lg shadow-blue-500/30">
+                            <i data-lucide="folder-open" class="w-5 h-5"></i>
+                            <span>Buka Drive</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="py-12 text-center border-t border-slate-800 mt-20">
+        <p class="text-[10px] text-slate-600 font-black tracking-[0.3em] uppercase">© 2026 Yohan Alim Wijaya • SMK Telkom Malang</p>
+    </footer>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <script>
+        lucide.createIcons();
+
+        // Sistem Navigasi Master
+        function hideAllPages() {
+            document.querySelectorAll('.page-section').forEach(page => {
+                page.classList.add('page-hidden');
+            });
+        }
+
+        function navigate(pageId) {
+            hideAllPages();
+            
+            const navAbout = document.getElementById('nav-btn-about');
+            const navPortfolio = document.getElementById('nav-btn-portfolio');
+            const floatingNav = document.getElementById('floating-nav');
+
+            if (pageId === 'about') {
+                document.getElementById('page-about').classList.remove('page-hidden');
+                
+                // Update Style Button Navbar
+                navAbout.className = "px-6 py-2 rounded-lg text-sm font-bold nav-btn-active transition-all";
+                navPortfolio.className = "px-6 py-2 rounded-lg text-sm font-bold text-slate-400 hover:text-white transition-all";
+                
+                // Tampilkan floating sidebar
+                floatingNav.classList.remove('page-hidden');
+            } else if (pageId === 'portfolio') {
+                document.getElementById('page-portfolio').classList.remove('page-hidden');
+                
+                // Update Style Button Navbar
+                navAbout.className = "px-6 py-2 rounded-lg text-sm font-bold text-slate-400 hover:text-white transition-all";
+                navPortfolio.className = "px-6 py-2 rounded-lg text-sm font-bold nav-btn-active bg-purple-600 shadow-[0_10px_15px_-3px_rgba(147,51,234,0.4)] transition-all";
+                
+                // Sembunyikan floating sidebar
+                floatingNav.classList.add('page-hidden');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Fungsi Buka Detail Proyek
+        function showProjectDetail(projectId) {
+            hideAllPages();
+            
+            // Tampilkan halaman detail yang dipilih
+            if(projectId === 'serve') {
+                document.getElementById('detail-serve').classList.remove('page-hidden');
+            } else if (projectId === 'move') {
+                document.getElementById('detail-move').classList.remove('page-hidden');
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                const offset = 100;
+                const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    </script>
+</body>
+</html>
